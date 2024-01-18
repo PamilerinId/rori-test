@@ -41,9 +41,9 @@ dbStore = [
         "expected_answer": "8"
     },
 ]
-
+# call to
 @app.get("/form/{questionId}", response_class=HTMLResponse)
-def root(request: Request, questionId: int):
+def root(request: Request, questionId: int = 1):
     result = "Answer the Question"
     return templates.TemplateResponse('form.html', context={'request': request, 'question':dbStore[questionId].question,'result': result})
 
